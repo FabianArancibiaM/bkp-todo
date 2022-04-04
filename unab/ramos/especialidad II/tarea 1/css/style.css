@@ -1,0 +1,83 @@
+@import url('./style_full_screen.css');
+@import url('./style_mobile_screen.css');
+body {
+    background-color: black;
+}
+.homepage {
+    background-color: white;
+}
+.header-page {
+    background-color: red !important;
+}
+.header-page h1 {
+    font-family: Titillium Web, sans-serif;
+}
+.content-main {
+    background-image: url('../img/estadio.jpg'); 
+}
+.table-game {
+    background-color: white; 
+    color: black;
+}
+.table-game caption {
+    background-color: #191c3b;
+    color: #fff; 
+}
+.header-table td {
+    border:  solid white;
+}
+.header-table div {
+    font-family: Titillium Web, sans-serif; 
+    text-align: center; 
+    color: #181b3a;
+}
+.body-table td {
+    border:  solid white;
+}
+.frame-players {
+    color: white;  
+    background-color: rgb(25 28 59);
+}
+.frame-players h1 {
+    font-family: Titillium Web, sans-serif;
+}
+.frame-players a {
+    text-align: center;
+    color: white;
+}
+.frame-news div {
+    background-color: #191c3b;
+    color: white;
+}
+.frame-comments {
+    /* background-color: rgb(255 255 255); */
+    background-color: blue;
+}
+.comments-record {
+    background-color: #ff0000;
+    
+}
+.comments-record-balloon {
+    background-color: white;
+    color: white;
+}
+.comments-new-comment button {
+    background: #191c3b;
+    color: white;
+}
+.frame-sponsors {
+    background-color: rgb(255 255 255);
+}
+.sponsors-title {
+    color: white; 
+    background-color: #191c3b; 
+    font-family: Titillium Web, sans-serif;
+    margin: 0px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+footer {
+    background-color: #ff0000;
+    color: black;
+    text-align: center;
+}

@@ -1,0 +1,203 @@
+@media only screen and (min-width: 700px) {
+
+    .header-page {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .header-page img {
+        width: 100px; 
+        height: 100px; 
+        margin-right: 20px;
+    }
+    .header-page h1 {
+        font-size: 3em; font-weight: 900;
+    }
+    .content-main {
+        display: flex; 
+        justify-content: space-evenly; 
+        align-items: center; 
+        margin: 15px 0px; 
+        background-size: cover; 
+        height: 400px;
+    }
+    .video-main {
+        width: 560px; 
+        height: 315px;
+    }
+    .table-game {
+        font-size: 20px;
+    }
+    .table-game caption {
+        font-weight: 700; 
+        padding: 5px;
+    }
+    .header-table-title {
+        font-weight: 600; 
+        margin-left: 10px;
+    }
+    .header-table-title-describe {
+        font-size: 15px;
+    }
+    .body-table img {
+        width: 70px; 
+        height:70px;
+    }
+    .first-frame {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center;
+    }
+    .first-frame-rigth {
+        margin-left: 10px;
+    }
+    .frame-title {
+        text-align: center;
+    }
+    .second-frame {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+        margin-left: 8px;
+    }
+    .second-frame-right {
+        margin-right: 10px;
+    }
+    .body-video iframe {
+        width:220px;
+        height:130px;
+    }
+    .main-body {
+        display: flex; 
+        flex-direction: row; 
+        align-items: center; 
+        width: 100%; 
+        justify-content: space-around; 
+        margin-bottom: 20px;
+    }
+    .frame-players {
+        border-radius: 25px; 
+        border: 2px solid ; 
+        width: 12%; 
+        text-align: center;
+        box-shadow: 3px 3px 3px black;
+    }
+    .frame-players h1 {
+        font-size: 1em;
+        font-weight: 900;
+    }
+    .frame-players img {
+        width:70px;
+        height:70px;
+        margin-top: 15px;
+    }
+    .frame-news {
+        display: flex; 
+        justify-content: flex-start; 
+        align-items: stretch; 
+        width: 60%;
+    }
+    .frame-news div {
+        width: 500px; 
+        border: 2px solid; 
+        text-align: center; 
+        margin: 5px;  
+        border-radius: 25px; 
+        box-shadow: 3px 3px 3px black; 
+    }
+    .frame-news h1 {
+        font-size: 2em;
+        margin: 10px;
+    }
+    .frame-news img {
+        width: 400px;
+    }
+    .frame-news p {
+        margin: 0px 20px; 
+        text-align: justify;
+    }
+    .frame-comments {
+        border-radius: 25px; 
+        border: 2px solid black; 
+        box-shadow: 3px 3px 3px black;
+        width: 20%;
+    }
+    .comments-record {
+        overflow: scroll;
+        height: 500px;
+        width: 90%;
+        margin: 20px;
+        border-radius: 20px;
+    }
+    .comments-record-balloon {
+        width: 250px; 
+        height: 100px; 
+        border: 3px solid #555;
+        background: #428bca; margin: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 20px;
+    }
+    .comments-record-balloon p {
+        overflow: hidden;
+    }
+    .comments-new-comment {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 20px;
+    }
+    .comments-new-comment textarea {
+        resize: none; 
+        font-size: 25px;
+        border-radius: 25px;
+    }
+    .comments-new-comment button {
+        width: 150px;
+        height: 40px;
+        background: #428bca;
+        margin: 5px;
+        border-radius: 70px;
+    }
+    .frame-sponsors {
+        border-radius: 25px; 
+        border: 2px solid black; 
+        box-shadow: 3px 3px 3px black;
+        margin: 0px 15px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .frame-sponsors img {
+        width: 200px; 
+        margin: 0px;
+        /* margin-bottom: 30px; */
+    }
+    .img-short {
+        width: 250px; 
+    }
+    .img-short-second {
+        width: 250px; 
+    }
+    .frame-sponsors h1 {
+        font-size: 2em;
+        font-weight: 900;
+        margin-bottom: 0px;
+    }
+    footer {
+        height: 35px;
+        padding: 1px;
+        padding: 3px;
+    }
+    footer p {
+        padding: 0%;
+        margin: 0px;
+    }
+}
