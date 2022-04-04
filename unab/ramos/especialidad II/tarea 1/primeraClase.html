@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/style.css">
+    <script src="logicPage.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo 1</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <title>La roja de todos</title>
 </head>
 
 <body>
@@ -26,6 +28,7 @@
                 </ul>
             </nav>
         </section> -->
+
         <div class="content-main">
             <!-- video promocional -->
             <section>
@@ -48,7 +51,7 @@
                         </div>
                     </td>
                     <td style="border-left-color: black;">
-                        <div class="header-table-title" >
+                        <div class="header-table-title">
                             <span> 29-03-2022 | 20:30 hrs </span>
                             <div class="header-table-title-describe">
                                 Eliminatorias Qatar </div>
@@ -63,7 +66,7 @@
                                 <div class="frame-title"> Brasil </div>
                             </div>
                             <div>
-                                <div class="scorer_torneo scorer"> 4 - 0 </div>
+                                <div class="scorer_torneo scorer"><strong>4 - 0</strong></div>
                             </div>
                             <div class="first-frame-rigth">
                                 <img src="img/selecciones/chile.png">
@@ -74,11 +77,11 @@
                     <td style="border-left-color: black;">
                         <div class="second-frame">
                             <div class="second-frame-right">
-                                <img  src="img/selecciones/chile.png">
+                                <img src="img/selecciones/chile.png">
                                 <div class="frame-title"> Chile </div>
                             </div>
                             <div>
-                                <div class="scorer_torneo scorer"> 0 - 2 </div>
+                                <div class="scorer_torneo scorer"> <strong>0 - 2</strong></div>
                             </div>
                             <div><img src="img/selecciones/uruguay.png">
                                 <div class="frame-title"> Uruguay </div>
@@ -88,10 +91,16 @@
                 </tr>
                 <tr class="body-video">
                     <td>
-                        <iframe  src="https://www.youtube.com/embed/6swYqnmmVJk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/6swYqnmmVJk" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </td>
                     <td>
-                        <iframe  src="https://www.youtube.com/embed/oyiMKforPL8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/oyiMKforPL8" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     </td>
                 </tr>
             </table>
@@ -185,7 +194,8 @@
                         <div>
                             <img src="img/titulares/alexis-sanchez-chile-copa-confederaciones-2017.jpg">
                             <div>
-                                <a style="margin-bottom: 15px;" href="https://www.instagram.com/alexis_officia1/?hl=es"> Alexis Sánchez </a>
+                                <a style="margin-bottom: 15px;" href="https://www.instagram.com/alexis_officia1/?hl=es">
+                                    Alexis Sánchez </a>
                             </div>
                         </div>
                     </li>
@@ -270,16 +280,24 @@
             </section>
             <!-- Seccón de auspiciadores -->
             <aside class="frame-comments">
-                <div class="comments-record">
+                <div class="comments-record" id="balloonChats">
+                    <div class="comments-record-balloon" style="display: none;" id="default">
+                        <img style="width: 50px;" src="img/selecciones/chile.png">
+                        <p></p>
+                    </div>
+                    
                     <div class="comments-record-balloon">
                         <img style="width: 50px;" src="img/selecciones/chile.png">
                         <p>Vamos Chile que se puede!!!!!</p>
                     </div>
-                    <div class="comments-record-balloon"></div>
+                    <div class="comments-record-balloon">
+                        <img style="width: 50px;" src="img/selecciones/chile.png">
+                        <p>Vamos Chile que se puede!!!!!</p>
+                    </div>
                 </div>
                 <div class="comments-new-comment">
                     <textarea name="" id="textComments" cols="20" rows="4" maxlength="50"></textarea>
-                    <button type="submit">Agregar</button>
+                    <button type="submit" onclick="addComments()">Agregar</button>
                 </div>
             </aside>
         </div>
@@ -287,7 +305,7 @@
         <div class="frame-sponsors">
             <img src="img/coca-cola-logo-1.png" alt="">
             <img class="img-short" src="img/Banco_Santander_Logotipo.svg.png" alt="">
-            <img class="img-short-second"  src="img/3000px-Logotipo_Sodimac.svg.png" alt="">
+            <img class="img-short-second" src="img/3000px-Logotipo_Sodimac.svg.png" alt="">
             <img src="img/Claro-Logo.png" alt="">
             <img src="img/cristal.png" alt="">
             <img src="img/latam-logo-15.png" alt="">
@@ -298,7 +316,7 @@
         </footer>
     </div>
 
-    
+
 </body>
 
 </html>
