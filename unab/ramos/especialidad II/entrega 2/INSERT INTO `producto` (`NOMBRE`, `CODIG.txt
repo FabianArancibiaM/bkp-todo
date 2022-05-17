@@ -1,0 +1,9 @@
+INSERT INTO `producto` (`NOMBRE`, `CODIGO`, `DESCRIPCION`, `PRECIO_V`, `PRECIO_C`, `CANTIDAD`) VALUES ('juego', '123', 'Guerra', '5000', '1500', '50');
+
+
+
+
+
+.... WHERE nombre LIKE 'j%' -> para buscar las que comiencen con j
+.... WHERE nombre LIKE '%a' -> para buscar las que terminen con a
+.... WHERE nombre LIKE '%a%' -> para buscar las que cotengan a

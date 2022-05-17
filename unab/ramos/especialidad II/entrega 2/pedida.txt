@@ -1,0 +1,26 @@
+La Empresa XYZ tiene tres productos que son la sensación a nivel mundial el Primero mas jugado por los Jovenes CALL OF DUTY
+el segundo mas jugado por los Niños MINECRAFT y el tercero mas jugado por Todos FORTNITE. 
+
+El departamento de ventas esta buscando vendedores para que empiecen a vender en las redes sociales FACEBOOK, TWITTER, INSTAGRAM y WHATSAPP
+
+El precio de CALL OF DUTY es de $34500, el de MINECRAFT es de $8800 y el de FORNITE es de $58200 
+
+Se quiere hacer un programa en PHP que calcule las ventas de cada vendedor por producto y las venta total
+de los 3 productos, tambien calcular la comisión ganada de cada producto por vendedor y la comisión total, sabiendo que:
+La comisión por vender Call of Duty es de 6%, la de Minecraft es de 4% y la de Fortnite es de 9%, por último colocar un boton que
+muestre el vendedor que genero mas Ventas y la comisión ganada
+
+El diseño de la Pagina Web debe contener:  
+    Nombre del vendedor (no debe aceptar números ni caracteres especiales)
+    Cantidad de Venta de cada producto (no debe aceptar letras, ni numeros negativos solo numeros enteros positivos)
+    Mostrar la imagen de cada producto y debajo de la imagen los campos con el precio de venta, una linea mas abajo la cantidad
+        vendida en pesos y otra linea mas abajo la comision ganada del vendedor
+    Utilizar una tabla que muestre toda la información y crear los botones para insertar, mostrar los vendedores y mostrar el vendedor 
+        con la mayor comisión
+    (Tabla)
+    muestre el vendedor que genero mas Ventas y la comisión ganada.(En letras mas grandes para resaltarlo)
+    Utilizar arreglos para guardar la información de los vendedores y para calcular los datos dados. Usar Sesion(Base Datos)
+    Observación: Deben diseñar una pagina web que muestre el contenido de los tres juegos con imágenes 
+        y en un enlace o en una seccion deben realizar el programa de vendedores.
+    Nota: El archivo sera guardado en una carpeta en GITHUB y debe contener su nombre y apellido
+
