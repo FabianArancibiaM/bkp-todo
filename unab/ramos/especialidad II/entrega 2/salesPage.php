@@ -2,249 +2,150 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/salesPage-main.css">
 	<title></title>
 </head>
 <body>
     <header class="header-page">
+        <section class="menu">
+            <nav>
+                <a href="index.php">Home</a>
+            </nav>
+        </section>
         <img class="left" src="./img/xyz.png" alt="seleccion">
         <img class="rigth" src="./img/logo-empresa.png" alt="seleccion">
     </header>
-    <!-- Seccion de las tablas -->
 
     <?php 
-        class Juego {
-            private $nomb;
-            private $precio;
-            private $comision;
-
-            function __construct($nomb, $precio, $comision){
-                $this->nomb = $nomb;
-                $this->precio = $precio;
-                $this->comision = $comision;
-            }
-
-            function getNombre(){ return $this->nomb;}
-            function getPrecio(){ return $this->precio;}
-            function getComision(){ return ($this->comision * $this->precio)/100;}
-        }
-        class Vendedor {
-            private $nomb_vendedor;
-            private $cant_vent_cod;
-            private $cant_vent_min;
-            private $cant_vent_fort;
-            private $game_cod;
-            private $game_min;
-            private $game_fort;
-
-            function __construct($nomb_vendedor, $cant_vent_cod, $cant_vent_min, $cant_vent_fort)
-            {
-                $this->nomb_vendedor = $nomb_vendedor;
-                $this->cant_vent_cod = $cant_vent_cod;
-                $this->cant_vent_min = $cant_vent_min;
-                $this->cant_vent_fort = $cant_vent_fort;
-                $this->game_cod = new Juego("CALL OF DUTY", 34500, 6);
-                $this->game_min = new Juego("MINECRAFT", 8800, 4);
-                $this->game_fort = new Juego("FORTNITE", 58200, 9);
-            }
-
-            function nombre(){
-                return $this->nomb_vendedor;
-            }
-
-            function getCantVentCod(){
-                return $this->cant_vent_cod;
-            }
-
-            function getCantVentMine(){
-                return $this->cant_vent_min;
-            }
-            function getCantVentFort(){
-                return $this->cant_vent_fort;
-            }
-
-            function bestSellingGame(){
-                if( $this->cant_vent_cod > $this->cant_vent_min && $this->cant_vent_cod > $this->cant_vent_fort ){ return 'game_cod';}
-                if( $this->cant_vent_min > $this->cant_vent_cod && $this->cant_vent_min > $this->cant_vent_fort ){ return 'game_min';}
-                if( $this->cant_vent_fort > $this->cant_vent_cod && $this->cant_vent_fort > $this->cant_vent_min ){ return 'game_fort';}
-            }
-
-            function totalVentas(){
-                return ($this->ventasCOD() + $this->ventasMINE() + $this->ventasFORT());
-            }
-
-            function ventasCOD(){
-                return ($this->game_cod->getPrecio() * $this->cant_vent_cod);
-            }
-
-            function ventasMINE(){
-                return ($this->game_min->getPrecio() * $this->cant_vent_min);
-            }
-
-            function ventasFORT(){
-                return  ($this->game_fort->getPrecio() * $this->cant_vent_fort);
-            }
-
-
-            function totalComision(){
-                return $this->comisionCOD() + $this->comisionMINE() + $this->comisionFORT();
-            }
-
-            function comisionCOD(){
-                return $this->game_cod->getComision() * $this->cant_vent_cod;
-            }
-
-            function comisionMINE(){
-                return ($this->game_min->getComision() * $this->cant_vent_min);
-            }
-
-            function comisionFORT(){
-                return  ($this->game_fort->getComision() * $this->cant_vent_fort);
-            }
-        }
-        function appendList($vendedor){
-            if (!isset($_SESSION['list_vendedor'])){
-                $_SESSION['list_vendedor']=array();
-            } 
-            if(!validNewSales($vendedor)){
-                $list_vendedor = $_SESSION['list_vendedor'];
-                array_push($list_vendedor, $vendedor);
-                $_SESSION['list_vendedor'] = $list_vendedor;
-                return "Guardado con exito";
-            }
-            return "El nombre ingresado ya existe";
-        }
-        function validNewSales($var)
-        {
-            foreach ($_SESSION['list_vendedor'] as &$valor){
-                if($valor->nombre() == $var->nombre()){
-                    return true;
-                }
-            }
-            return false;
-        }
-        function mayorVenta(){
-            $mejorVendedor = null;
-            foreach ($_SESSION['list_vendedor'] as &$valor){
-                if($mejorVendedor == null) {
-                    $mejorVendedor = $valor;
-                } else {
-                    if($mejorVendedor -> totalVentas() <= $valor -> totalVentas()){
-                        $mejorVendedor = $valor;
-                    }
-                }
-            }
-            return $mejorVendedor-> nombre();     
-        }
-        function mayorComision(){
-            $mejorVendedor = null;
-            foreach ($_SESSION['list_vendedor'] as &$valor){
-                if($mejorVendedor == null) {
-                    $mejorVendedor = $valor;
-                } else {
-                    if($mejorVendedor -> totalComision() <= $valor -> totalComision()){
-                        $mejorVendedor = $valor;
-                    }
-                }
-            }
-            return $mejorVendedor-> nombre();     
-        }
-        function gameOutstanding($vendedor){
-            if($vendedor->bestSellingGame() == 'game_cod'){return './img/call-of-duty-warzone.jpg';}
-            if($vendedor->bestSellingGame() == 'game_min'){return './img/mine.jpg';}
-            if($vendedor->bestSellingGame() == 'game_fort'){return './img/Fortnite.jpg';}
-        }
+        include('./src/salesLogic.php');
+        // Se inicia la session de php
         session_start();
-        $vendedor = new Vendedor("Fernando", 3, 4 , 5);
-        $vendedor1 = new Vendedor("jose", 8, 5 , 85);
-        $vendedor2 = new Vendedor("Marcela", 80, 12 , 41);
+        // Se agregan vendedores por default
+        $vendedor = new Vendedor("Fernando", 3, 8 , 5);
+        $vendedor1 = new Vendedor("Jose", 8, 5 , 9);
+        $vendedor2 = new Vendedor("Marcela", 3, 2 , 1);
+        $vendedor3 = new Vendedor("Vanessa", 3, 3 , 3);
         appendList($vendedor);
         appendList($vendedor1);
         appendList($vendedor2);
-        ?>
+        appendList($vendedor3);
+    ?>
     <form method="post" class="form-button">
         <input type="submit" name="button1" class="button" value="Agregar vendedor" />
         <input type="submit" name="button2" class="button" value="Mostrar vendedores" />
     </form>
     <?php
-        $var = 0;
+        // se declaran variables globales
+        $var = 2;
         $dinamicStyle=false;
         $text = "";
-        $nombreMejorVendedor = "";
+        $bestSellerName = "";
         $venta = false;
-        $new_vendedor = null;
+        $comision = false;
+        $new_seller = null;
+
         if(array_key_exists('button1', $_POST)) {
+            // Muestra el formulario
             $var = 1;
         }
         else if(array_key_exists('button2', $_POST)) {
+            // Muestra la tabla de vendedores
             $var = 2;
             $dinamicStyle = false;
         }
         else if(array_key_exists('button3', $_POST)) {
+            // Resalta la fila del vendedor con mas ventas
             $dinamicStyle = true;
             $var = 2;
-            $nombreMejorVendedor = mayorVenta();
+            $bestSellerName = biggestSale();
             $venta =true;
+            $comision = false;
         }
         else if(array_key_exists('button4', $_POST)) {
+            // Resalta la fila del vendedor con mas comision
             $venta =false;
+            $comision = true;
             $dinamicStyle = true;
             $var = 2;
-            $nombreMejorVendedor = mayorComision();
+            $bestSellerName = higherCommission();
             
         }
         else if(array_key_exists('agregar', $_GET)) {
+            // Crea y agrega un nuevo vendedor
             $nom=$_REQUEST['nom'];
             $cod=$_REQUEST['cant_cod'];
             $mine=$_REQUEST['cant_mine'];
             $fort=$_REQUEST['cant_fort'];
-            $new_vendedor = new Vendedor($nom, $cod, $mine , $fort);
+            $new_seller = new Vendedor($nom, $cod, $mine , $fort);
             $var = 1;
-            $text = appendList($new_vendedor);
+            $text = appendList($new_seller);
         }
     ?>
 
-    <?php if( $var == 1) { ?>
-        <!-- Seccion formulario -->
+    <script>
+        // La funcion valida que solo se ingresen letras
+        function SoloLetras(letra) {
+            tecla = (document.all) ? letra.keyCode : letra.which;
+            //Tecla de retroceso para borrar, y espacio siempre la permite
+            if (tecla == 8 || tecla == 32) {
+                return true;
+            }
+            patron = /[A-Za-z]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+    </script>
+
+<?php if( $var == 1) { ?>
+        <!-- Seccion formulario y resumen del vendedor-->
         <section class="form-seller">
+            <!--  Formulario del vendedor -->
             <div class="box-form">
                 <h1>Ingresar nuevo vendedor</h1>
                 <form method="get">
-                    <br>Nombre Vendedor
-                    <input type="text" name="nom">
-                    <br><br>Cantidad de ventas
-                    <br><br>CALL OF DUTY
-                    <br><input type="number" name="cant_cod">
-                    <br>MINECRAFT
-                    <br><input type="number" name="cant_mine">
-                    <br>FORTNITE
-                    <br><input type="number" name="cant_fort">
                     <br>
-                    <br><input type="submit" name="agregar" value="Ingresar">
+                    <input id="txtSoloLetras" type="text" name="nom" placeholder="Nombre" onkeypress="return SoloLetras(event)" required>
+                    <br><br><strong>Ingresar cantidad de productos vendidos</strong>
+                    <br><br><br>
+                    <br><input type="text" name="cant_cod" placeholder="CALL OF DUTY" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" required>
+                    <br>
+                    <br><input type="text" name="cant_fort" placeholder="FORTNITE" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" required>
+                    <br>
+                    <br><input type="text" name="cant_mine" placeholder="MINECRAFT" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" required>
+                    <br>
+                    <br>
+                    <input type="submit" class="button" name="agregar" value="Ingresar">
                 </form>
+            </div>
+            <!-- Resumen de la venta realizada por en nuevo vendedor -->
+            <article class="box-resume">
+                
                 <?php 
                     if($text!=""){
-                        echo "<h2>".$text."</h2>";
+                        echo "<div class='box-alert'>";
+                        echo "<strong>".$text."</strong>";
+                        echo "</div>";
                     }
                 ?>
-            </div>
-            <article class="box-rigth">
-                <div class="box-resume">
+                
+                <h2>Resumen de venta</h2>
+                <div class="box-images">
                     <div class="box-game one">
                         <div class="image">
                             <img src="./img/call-of-duty-warzone.jpg" alt="seleccion">
                         </div>
-                        <?php if($new_vendedor== null){
+                        <?php if($new_seller== null){
                             echo "Precio: $34.500";
-                            echo "<br>Cantidad:";
-                            echo "<br>Total: $";
-                            echo "<br>Comisión: $ ";
+                            echo "<br>Cantidad:0";
+                            echo "<br>Total: $0";
+                            echo "<br>Comisión: $0 ";
                         } else {
                             echo "Precio: $34.500";
-                            echo "<br>Cantidad: ".$new_vendedor->getCantVentCod();
-                            echo "<br>Total: $".number_format($new_vendedor->ventasCOD(),0,",",".");
-                            echo "<br>Comisión: $".number_format($new_vendedor->comisionCOD(),0,",",".");
+                            echo "<br>Cantidad: ".$new_seller->getCantVentCod();
+                            echo "<br>Total: $".number_format($new_seller->ventasCOD(),0,",",".");
+                            echo "<br>Comisión: $".number_format($new_seller->comisionCOD(),0,",",".");
                         }
                         ?>
                     </div>
@@ -252,11 +153,35 @@
                         <div class="image">
                             <img src="./img/Fortnite.jpg" alt="seleccion">
                         </div>
+                        <?php if($new_seller== null){
+                            echo "Precio: $58.200";
+                            echo "<br>Cantidad: 0";
+                            echo "<br>Total: $0";
+                            echo "<br>Comisión: $0";
+                        } else {
+                            echo "Precio: $58.200";
+                            echo "<br>Cantidad: ".$new_seller->getCantVentFort();
+                            echo "<br>Total: $".number_format($new_seller->ventasFORT(),0,",",".");
+                            echo "<br>Comisión: $".number_format($new_seller->comisionFORT(),0,",",".");
+                        }
+                        ?>
                     </div>
                     <div class="box-game three">
                         <div class="image">
                             <img src="./img/mine.jpg" alt="seleccion">
                         </div>
+                        <?php if($new_seller== null){
+                            echo "Precio: $8.800";
+                            echo "<br>Cantidad: 0";
+                            echo "<br>Total: $0";
+                            echo "<br>Comisión: $0 ";
+                        } else {
+                            echo "Precio: $8.800";
+                            echo "<br>Cantidad: ".$new_seller->getCantVentMine();
+                            echo "<br>Total: $".number_format($new_seller->ventasMINE(),0,",",".");
+                            echo "<br>Comisión: $".number_format($new_seller->comisionMINE(),0,",",".");
+                        }
+                        ?>
                     </div>
                 </div>
             </article>
@@ -264,6 +189,7 @@
     <?php } ?>
 
     <?php if( $var == 2) { ?>
+        <!-- Seccion tabla con la informacion de los vendedores -->
         <section class="table-seller">
         <h1>Tabla de vendedores</h1>
         <article class="table1">
@@ -302,12 +228,12 @@
                         </th>
                     </tr>
                 </thead>
-                <?php foreach ($_SESSION['list_vendedor'] as &$valor) 
+                <?php foreach ($_SESSION['list_seller'] as &$valor) 
                     { ?>
                     <tbody>
                         <tr class="body-table 
                                 <?php 
-                                    if($dinamicStyle && $nombreMejorVendedor == $valor->nombre() )
+                                    if($dinamicStyle && $bestSellerName == $valor->nombre() )
                                     {echo 'active-row   ';} else {echo '';}
                                 ?>">
                             <td>
@@ -325,7 +251,7 @@
                             <td
                                 class=" 
                                 <?php 
-                                    if($venta && $nombreMejorVendedor == $valor->nombre() )
+                                    if($venta && $bestSellerName == $valor->nombre() )
                                     {echo 'highlight';} else {echo '';}
                                 ?>"
                             >
@@ -343,7 +269,7 @@
                             <td
                             class=" 
                                 <?php 
-                                    if($dinamicStyle && $nombreMejorVendedor == $valor->nombre() )
+                                    if($comision && $bestSellerName == $valor->nombre() )
                                     {echo 'highlight';} else {echo '';}
                                 ?>"
                             >
@@ -366,17 +292,24 @@
             </table>
         </article>
         <form method="post" >
-        
-        <?php ?>
-            <input type="submit" name="button3" class="button" value="Vendedor con mayor ventas" />
-            <input type="submit" name="button4" class="button" value="Vendedor con mayor comisión" />
-        <?php ?> 
-            
+            <?php ?>
+                <input type="submit" name="button3" class="button" value="Vendedor con mayor ventas" />
+                <input type="submit" name="button4" class="button" value="Vendedor con mayor comisión" />
+            <?php ?>         
         </form>
     </section>
     <?php } ?>
+    
+    <!-- footer, terminos y condiciones y desarrollador -->
+    <footer>
+        <div class="social-media">
+            <img src="./img/facebook.png" alt="seleccion" >
+            <img src="./img/instagram.png" alt="seleccion" >
+            <img src="./img/whatsapp.png" alt="seleccion" >
+            <img src="./img/gorjeo.png" alt="seleccion" >
+        </div>
+        <p>TÉRMINOS Y CONDICIONES | POLÍTICA DE PRIVACIDAD</p>
+        <h3>©Autor Fabian Arancibia</h3>
+    </footer>
 </body>
 </html>
-<?php
-	// session_destroy();
-?>

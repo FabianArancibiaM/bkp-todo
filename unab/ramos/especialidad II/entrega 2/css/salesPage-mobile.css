@@ -1,5 +1,4 @@
-@media only screen and (min-width: 1001px){
-
+@media only screen and (max-width: 1000px){
     /* Estilos seccion del header */
     .header-page {
         display: flex;
@@ -11,39 +10,32 @@
     .header-page .rigth, .left {
         width: 100px;
     }
-    .menu {
-        position: fixed;
-    }
+
     .header-page .rigth{
         margin-left: 30%;
     }
-    .button {
-        padding: 1% 10%;
-        margin: 20px 0px;
+    .menu {
+        position: fixed;
     }
-    
-    /* Estilos seccion formulario de ingreso de vendedor */
+    /* Estilos de botonera menu */
     .form-button {
         padding-top: 50px;
         text-align: center;
         margin-bottom: 20px;    
     }
-    
-    .form-seller {
+    .button {
+        padding: 1% 10%;
+        margin: 20px 0px;
+        padding: 15px;
+        font-size: larger;
+    }
+    /* Estilos seccion formulario de ingreso de vendedor */
+    .form-seller{
         display: flex;
+        flex-direction: column;
         align-items: center;
-        margin: 0px 10%;
-        border-radius: 1.35em;
     }
-    .box-form{
-        padding: 0px 4%;
-        text-align: center;
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    .box-form h1 {
-        margin-bottom: 0px;
-    }
+
     .box-form .button {
         background-color: #26a69a;
         color: white;
@@ -81,7 +73,7 @@
         padding: 20px;
     }
     .image{
-        width: 200px;
+        width: 300px;
         margin-right: 20px;
     }
     .image img{
@@ -91,28 +83,31 @@
         display: flex;
         width: 100%;
         align-items: center;
+        flex-direction: column;
+        border-bottom: 3px solid;
+        margin-bottom: 10px;
     }
 
     /* Estilos de la seccion de la tabla de vendedores */
 
     .table-seller {
         background-color: white;
-        margin: 0px 15px;
-        padding: 30px 40px;
+        padding: 20px 15px;
         text-align: center;
     }
     .table1 {
         overflow: scroll;
-        height: 450px;
+        height: 400px;
     }
+
     
     .styled-table th,
     .styled-table td {
-        padding: 12px 15px;
+        padding: 5px 5px;
     }
     
     .img-game-outstanding{
-        width: 150px;
+        width: 100px;
     }
     .img-game-outstanding img{
         width: 100%;
@@ -123,12 +118,12 @@
         font-weight: bold;
     }
     
+
     /* Estilos sección footer */
     footer {
         padding-top: 10px;
         padding-bottom: 10px;
         text-align: center;
-        margin: 0px 15px;
         margin-top: 5px;
     }
 

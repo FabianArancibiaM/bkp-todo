@@ -19,15 +19,22 @@
     
     <!-- Seccion de los juegos -->
     <section class="image-game">
-        <img src="./img/call-of-duty-warzone.jpg" alt="seleccion">
-        <img src="./img/Fortnite.jpg" alt="seleccion">
-        <img src="./img/mine.jpg" alt="seleccion">
+        <div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/vdrn4ouZRvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/cv7YRnV_WFI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/0E44DClsX5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>   
     <section class="game">
         <article class="box-game">
             <div class="box-picture">
                 <img src="./img/call-of-duty-warzone.jpg" alt="seleccion" >
             </div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/0E44DClsX5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="box-text">
                 <h1>CALL OF DUTY</h1>
                 <strong>Precio: $34.500</strong>
@@ -50,6 +57,7 @@
             <div class="box-picture">
                 <img src="./img/Fortnite.jpg" alt="seleccion" >
             </div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/cv7YRnV_WFI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="box-text">
                 <h1>FORTNITE</h1>
                 <strong>Precio: $58.200</strong>
@@ -77,6 +85,7 @@
             <div class="box-picture">
                 <img src="./img/mine.jpg" alt="seleccion" >
             </div>
+            <iframe width="300" height="215" src="https://www.youtube.com/embed/vdrn4ouZRvQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="box-text">
                 <h1>MINECRAFT</h1>
                 <strong>Precio: $8.800</strong>
@@ -93,6 +102,17 @@
             </div>
         </article>
     </section>
+    <!-- footer, terminos y condiciones y desarrollador -->
+    <footer>
+        <div class="social-media">
+        <img src="./img/facebook.png" alt="seleccion" >
+        <img src="./img/instagram.png" alt="seleccion" >
+        <img src="./img/whatsapp.png" alt="seleccion" >
+        <img src="./img/gorjeo.png" alt="seleccion" >
+        </div>
+        <p>TÉRMINOS Y CONDICIONES | POLÍTICA DE PRIVACIDAD</p>
+        <h3>©Autor Fabian Arancibia</h3>
+    </footer>
 
 </body>
 </html>
