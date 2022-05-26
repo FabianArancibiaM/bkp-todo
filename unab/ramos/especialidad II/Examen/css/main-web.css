@@ -1,0 +1,64 @@
+/* Estos estilos se muestran hasta un minimo de 1131px */
+@media only screen and (min-width: 1000px) {
+    /* Estilos de headers */
+    .header-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-page .rigth, .left {
+        width: 100px;
+    }
+
+    .header-page .rigth{
+        margin-left: 30%;
+    }
+    .menu {
+        position: fixed;
+    }
+
+    /* Estilos imagenes de los juegos */
+    .image-game {
+        padding-top: 70px;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .image-game img{
+        width: 20%;
+    }
+
+    .game {
+        padding: 0px 30px;
+    }
+
+    .box-game {
+        background-color: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 5px 15px 25px rgb(247, 187, 8);
+        margin-bottom: 50px;
+    }
+    .box-game iframe{
+        display: none;
+    }
+    .box-picture {
+        width: 40%;
+        padding: 1%;
+    }
+
+    .box-picture img {
+        width: 100%;
+    }
+    .box-text {
+        width: 100%;
+        padding: 0px 20px;
+    }
+    .box-text h1 {
+        text-align: center;
+    }
+}

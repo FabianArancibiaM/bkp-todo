@@ -1,0 +1,42 @@
+/* Estilos para dispositivo mobile */
+@import url('./main-mobile.css');
+/* Estilos para pagina web */
+@import url('./main-web.css');
+
+/* Estilos generales */
+body{
+    font-family: Titillium Web, sans-serif;
+    background-color: rgb(0, 0, 0);
+    margin: 0%;
+}
+.header-page {
+    position: fixed;
+    width: 100%;
+    background: white;
+}
+.content-main, .main-body {
+    background-color: white;
+}
+/* Estilos sección footer */
+.social-media{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.social-media img{
+    width: 30px;
+    margin: 0px 10px;
+    margin-bottom: 10px;
+}
+footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background: var(--top-navigation--background,#074365);
+    color: white;
+}
+
+footer p {
+    margin: 0px;
+}

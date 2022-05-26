@@ -1,0 +1,133 @@
+@media only screen and (max-width: 1000px){
+    /* Estilos seccion del header */
+    .header-page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;    
+    }
+    
+    .header-page .rigth, .left {
+        width: 100px;
+    }
+
+    .header-page .rigth{
+        margin-left: 30%;
+    }
+    .menu {
+        position: fixed;
+    }
+    /* Estilos de botonera menu */
+    .form-button {
+        padding-top: 50px;
+        text-align: center;
+        margin-bottom: 20px;    
+    }
+    .button {
+        padding: 1% 10%;
+        margin: 20px 0px;
+        padding: 15px;
+        font-size: larger;
+    }
+    /* Estilos seccion formulario de ingreso de vendedor */
+    .form-seller{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box-form .button {
+        background-color: #26a69a;
+        color: white;
+    }
+    .box-form input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #9e9e9e;
+        border-radius: 0;
+        outline: none;
+        height: 3rem;
+        width: 100%;
+        font-size: 1rem;
+        margin: 0 0 15px 0;
+        padding: 0;
+        box-shadow: none;
+        box-sizing: content-box;
+        transition: all 0.3s;
+    }
+    .box-resume {
+        width: 100%;
+    }
+    .box-resume h2{
+        text-align: center;
+    }
+    .box-images {
+        width: 100%;
+    }
+    .box-alert {
+        background-color: #26a69a;
+        color: white;
+        text-align: center;
+        margin: 10px 30px;
+        font-size: larger;
+        padding: 20px;
+    }
+    .image{
+        width: 300px;
+        margin-right: 20px;
+    }
+    .image img{
+        width: 100%;
+    }
+    .box-game {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        border-bottom: 3px solid;
+        margin-bottom: 10px;
+    }
+
+    /* Estilos de la seccion de la tabla de vendedores */
+
+    .table-seller {
+        background-color: white;
+        padding: 20px 15px;
+        text-align: center;
+    }
+    .table1 {
+        overflow: scroll;
+        height: 400px;
+    }
+
+    
+    .styled-table th,
+    .styled-table td {
+        padding: 5px 5px;
+    }
+    
+    .img-game-outstanding{
+        width: 100px;
+    }
+    .img-game-outstanding img{
+        width: 100%;
+    }
+    .selected{
+        background-color: #c9c595;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    
+
+    /* Estilos sección footer */
+    footer {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    footer p {
+        margin: 0px;
+    }
+}
