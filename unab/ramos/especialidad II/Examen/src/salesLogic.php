@@ -86,6 +86,13 @@
             if( $cant_vent_min > $cant_vent_cod && $cant_vent_min > $cant_vent_fort ){ return 'game_min';}
             if( $cant_vent_fort > $cant_vent_cod && $cant_vent_fort > $cant_vent_min ){ return 'game_fort';}
         }
+
+        function biggestSale(){
+            $bigger
+            foreach ($this->juegos as $value) {
+                
+            }
+        }
     }
 ?>
 
@@ -113,9 +120,9 @@
         return false;
     }
     // La funcion busca al vendedor que tiene el valor de ventas mayor
-    function biggestSale(){
+    function biggestSale($listVendedores){
         $mejorVendedor = null;
-        foreach ($_SESSION['list_seller'] as &$valor){
+        foreach ($listVendedores as &$valor){
             if($mejorVendedor == null) {
                 $mejorVendedor = $valor;
             } else {
@@ -127,9 +134,9 @@
         return $mejorVendedor-> nombre();     
     }
     // La funcion busca al vendedor que tiene el valor de comision mayor
-    function higherCommission(){
+    function higherCommission($listVendedores){
         $mejorVendedor = null;
-        foreach ($_SESSION['list_seller'] as &$valor){
+        foreach ($listGame as &$valor){
             if($mejorVendedor == null) {
                 $mejorVendedor = $valor;
             } else {
