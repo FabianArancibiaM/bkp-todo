@@ -25,21 +25,9 @@
         try {
             $date = date('Y-m-d h:m:s');
             $conexion = getConection();
-            $consultaSQL = "INSERT INTO `vendedor` (`id`, `nombre`, `created_at`, `updated_at`) VALUES (NULL, '".$seller->getNombre()."', '".$date."', '".$date."')";
+            $consultaSQL = "INSERT INTO vendedor    (nombre, comision_cod, precio_cod, cantidad_cod, comision_min, precio_min, cantidad_min, comision_for, precio_for, cantidad_for, created_at, updated_at) VALUES ('".$seller->getNombre()."','".$seller->comisionCOD()."','".$seller->ventasCOD()."','".$seller->getCantVentCod()."','".$seller->comisionMINE()."','".$seller->ventasMINE()."','".$seller->getCantVentMine()."','".$seller->comisionFORT()."','".$seller->ventasFORT()."','".$seller->getCantVentFort()."','".$date."','".$date."')";
             $sentencia = $conexion->prepare($consultaSQL);
-            $sentencia->execute();
-            $indexBD = $conexion->lastInsertId();
-            $consultaSQL = "INSERT INTO `venta` (`id_vendedor`, `id_juego`, `comision`, `precio`, `cantidad`, `created_at`, `updated_at`) VALUES";
-            $contador = 1;
-            foreach($seller->getListGame() as $fila){
-                $consultaSQL = $consultaSQL." ('".$indexBD."', '".$fila->getId()."', '".$fila->getTotalComision()."', '".$fila->getTotalPrecio()."', '".$fila->getCantidad()."', '".$date."', '".$date."')";
-                if($contador<count($seller->getListGame())){
-                    $consultaSQL = $consultaSQL.",";
-                    $contador = $contador +1;
-                }
-            }
-            $sentencia = $conexion->prepare($consultaSQL);
-            $sentencia->execute();
+            $sentencia->execute();            
             return "Guardado con exito";
         } catch(PDOException $error){
             $error =$error->getMessage();
@@ -48,7 +36,7 @@
         }
    }
 
-    function getAllSeller(){
+    function getAllSeller($listGame){
         try {
             $conexion = getConection();
             $consultaSQL = "SELECT * FROM vendedor";
@@ -57,9 +45,8 @@
             $sellers = $sentencia->fetchAll();
             $listSellers = array();
             foreach($sellers as $fila){
-                $vendedor = new Vendedor($fila['1']);
-                $vendedor->setId($fila['0']);
-                getVentas($vendedor);
+                $vendedor = new Vendedor($fila['nombre'],$fila['cantidad_cod'],$fila['cantidad_min'],$fila['cantidad_for'],$listGame[0],$listGame[1],$listGame[2]);
+                $vendedor->setId($fila['id']);
                 array_push($listSellers, $vendedor);
             }
             return $listSellers;
@@ -69,31 +56,11 @@
             return null;
         }
     }
-    function getVentas($vendedor){
-        try{
-            $conexion = getConection();
-            $consultaSQL = "SELECT venta.id_vendedor,venta.comision, venta.precio, venta.cantidad, juego.comision, juego.precio, juego.nombre, juego.id FROM venta INNER JOIN juego ON juego.id =venta.id_juego WHERE venta.id_vendedor = ".$vendedor->getId().";";
-            $sentencia = $conexion->prepare($consultaSQL);
-            $sentencia->execute();
-            $sellers = $sentencia->fetchAll();
-            foreach($sellers as $fila){
-                $newGame = new Juego($fila["id"],$fila["nombre"],$fila["precio"],$fila["comision"]);
-                $newGame->setCantidad($fila["3"]);
-                $vendedor->addGame($newGame);
-            }
-        }catch(PDOException $error){
-            $error =$error->getMessage();
-            echo $error;
-            return null;
-        }
-    }
     function deleteSeller($id_vendedor){
         try{
             $conexion = getConection();
-            $consultaSQL = "DELETE FROM venta WHERE id_vendedor=".$id_vendedor;
-            $sentencia = $conexion->prepare($consultaSQL);
-            $sentencia->execute();
             $consultaSQL = "DELETE FROM vendedor WHERE id=".$id_vendedor;
+            echo $consultaSQL;
             $sentencia = $conexion->prepare($consultaSQL);
             $sentencia->execute();
             return "Eliminado con exito";
@@ -103,18 +70,13 @@
             return null;
         }
     }
-    function updateSeller($vendedor){
+    function updateSeller($seller){
         try {
             $date = date('Y-m-d h:m:s');
             $conexion = getConection();
-            $consultaSQL = "UPDATE vendedor SET nombre='".$vendedor->getNombre()."',updated_at='".$date."' WHERE id=".$vendedor->getId();
+            $consultaSQL = "UPDATE vendedor SET nombre='".$seller->getNombre()."',comision_cod='".$seller->comisionCOD()."',precio_cod='".$seller->ventasCOD()."',cantidad_cod='".$seller->getCantVentCod()."',comision_min='".$seller->comisionMINE()."',precio_min='".$seller->ventasMINE()."',cantidad_min='".$seller->getCantVentMine()."',comision_for='".$seller->comisionFORT()."',precio_for='".$seller->ventasFORT()."',cantidad_for='".$seller->getCantVentFort()."',updated_at='".$date."' WHERE id=".$seller->getId();
             $sentencia = $conexion->prepare($consultaSQL);
             $sentencia->execute();
-            foreach($vendedor->getListGame() as $juego){
-                $consultaSQL = "UPDATE venta SET comision='".$juego->getTotalComision()."',precio='".$juego->getTotalPrecio()."',cantidad='".$juego->getCantidad()."',updated_at='".$date."' WHERE id_vendedor = ".$vendedor->getId()." and id_juego =".$juego->getId();
-                $sentencia = $conexion->prepare($consultaSQL);
-                $sentencia->execute();
-            }
             return "Actualizado correctamente";
         } catch (PDOException $error) {
             $error = $error->getMessage();

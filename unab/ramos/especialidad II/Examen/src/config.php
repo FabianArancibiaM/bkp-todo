@@ -5,7 +5,7 @@ return [
 		'host' =>'localhost',
 		'user' =>'root',
 		'pass' =>'',
-		'name' =>'tienda_xyz',
+		'name' =>'juegos',
 		'option' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 	]
 ];
